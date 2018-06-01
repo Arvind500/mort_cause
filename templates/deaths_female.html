@@ -1,0 +1,40 @@
+<html>
+<html>
+<head>
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css"
+    rel="stylesheet" type="text/css">
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
+
+</head>
+<body>
+<H1>Deaths by Cause</H1>
+
+<form action="/">
+<select name="feature_name">
+	{% for feature in feature_names %}
+		{% if feature == current_feature_name %}
+			 <option selected value="{{ feature }}">{{ feature }}</option>
+		{% else %}
+			 <option value="{{ feature }}">{{ feature }}</option>
+		{% endif %}
+	{% endfor %}
+</select>
+<input type="submit" value="Enter">
+
+</form>
+
+<h5>Average Age at Death: {{ Avg }}</h5>
+<h5>Total Number of Deaths: {{ counts1 }}</h5>
+<h5>Standard Deviation: {{ Std_Dev }}</h5>
+	
+{{script|safe}}
+{{div|safe}}
+
+</body>
+</html>
